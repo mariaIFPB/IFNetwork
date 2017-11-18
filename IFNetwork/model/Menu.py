@@ -1,12 +1,11 @@
-from Usuario import Usuario
+from model.Usuario import Usuario
 
+#apenas criando e deletando usuarios
 
-para inserir novo usuario:
-
-opcao = int(inpt("seja bem vindo!\n"
+opcao = int(input("seja bem vindo!\n"
       "\n opções:\n"
-      "1 - criar novo usuário"
-      "2 - deletar usuário")
+      "1 - criar novo usuário\n"
+      "2 - deletar usuário\n")
 
 if (opcao == 1):
     nome = input("informe seu nome: ")
@@ -18,4 +17,8 @@ if (opcao == 1):
     cidade = input("informe sua cidade: ")
     u = Usuario(nome, email, senha, genero, idade, profissao, cidade, usuarios)
     u.inserirUser()
+
+elif (opcao == 2)
+    email = input("informe o email da conta a ser deletada: ")
+    u.
 

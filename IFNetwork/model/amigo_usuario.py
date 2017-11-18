@@ -1,17 +1,19 @@
 import sqlite3
-conn = sqlite3.connect('IFNetwork.db')
-cursor = conn.cursor()
 
-#usando o id para identificar as pessoas
-id_usuario1 = int(input("informe seu nome: "))
-id_usuario2 = int(input("informe seu email: "))
+class Amigo_Usuario():
+    def __init__ (email1, email2):
+        self.email1 = email1
+        self.email2 = email2
 
-cursor.execute("""
-INSERT INTO amigo_usuario(id_usuario1, id_usuario2)
-VALUES (?,?); """, (id_usuario1, id_usuario2))
+        conn = sqlite3.connect('IFNetwork.db')
+        cursor = conn.cursor()
 
-conn.commit()
+        email1 = int(input("informe seu email: "))
+        email2 = int(input("informe o email do seu amigo: "))
 
-print("isso funciona.")
+        cursor.execute("""
+        INSERT INTO amigo_usuario(email1, email2)
+        VALUES (?,?); """, (email1, email2))
 
-conn.close()
+        conn.commit()
+        conn.close()

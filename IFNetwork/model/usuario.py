@@ -37,7 +37,7 @@ class Usuario():
             idade = linha[6]
             profissao = linha[7]
             cidade = linha[8]
-            usuario = Usuario(nome, email, senha, genero, idade, profissao, cidade)
+            usuario = Usuario(nome, email, telefone, senha, genero, idade, profissao, cidade)
             self.usuarios.append(usuario)
             conn.commit()
             conn.close()
@@ -67,11 +67,13 @@ class Usuario():
             WHERE email = ?
         """, (self.email, self.telefone, emailAntigo))
         
-    def deletar(self, email):
+    def deletar(self):
         conn = sqlite3.connect('IFNetwork.db')
         cursor = conn.cursor()
+        email = self.email
         cursor.execute("""
-            DELETE FROM tb_usuario WHERE id = ?
+            DELETE FROM tb_usuario 
+            WHERE email = ?
             """, (email))
         conn.commit()
         conn.close()

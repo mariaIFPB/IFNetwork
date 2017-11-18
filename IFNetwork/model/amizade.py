@@ -1,15 +1,17 @@
 import sqlite3
 import datetime
 
-conn = sqlite3.connect("IFNetwork.db")
-cursor = conn.cursor()
+class Amizade():
 
-cursor.execute("""
-INSERT INTO amizade(data_amizade) VALUES(datetime('now'));
-""")
+    conn = sqlite3.connect("IFNetwork.db")
+    cursor = conn.cursor()
 
-conn.commit()
+    cursor.execute("""
+    INSERT INTO amizade(data_amizade) VALUES(datetime('now'));
+    """)
 
-print("amizade funciona.")
+    conn.commit()
 
-conn.close()
+    print("amizade funciona.")
+
+    conn.close()

@@ -25,6 +25,6 @@ class Mensagem ():
         INSERT INTO tb_mensagem(texto, id_remetente, id_destinatario) VALUES (?, ?, ?);
         """, (texto, remetente, destinatario))
 
-    conn.commit()
+        conn.commit()
 
-    conn.close()
+        conn.close()

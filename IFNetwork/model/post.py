@@ -27,6 +27,5 @@ class Post():
         for linha in cursor.fetchall():
             print(linha)
 
-conn.commit()
-
-conn.close()
+        conn.commit()
+        conn.close()
