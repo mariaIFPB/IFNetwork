@@ -6,7 +6,7 @@ cursor = conn.cursor()
 # Criando as tabelas: usuario, mensagem, post, amizade, amigo_usuario
 
 cursor.execute("""
-    CREATE TABLE usuario(
+    CREATE TABLE tb_usuario(
         id INTEGER AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(100) NOT NULL,
         email VARCHAR(100) NOT NULL,
@@ -19,14 +19,14 @@ cursor.execute("""
         """)
 
 cursor.execute("""
-    CREATE TABLE amizade(
+    CREATE TABLE tb_amizade(
         id INTEGER AUTO_INCREMENT PRIMARY KEY,
         data_amizade TEXT
         );
         """)
 
 cursor.execute("""
-    CREATE TABLE amigo_usuario(
+    CREATE TABLE tb_amigo_usuario(
         id INTEGER AUTO_INCREMENT PRIMARY KEY,
         id_usuario1 INTEGER,
         id_usuario2 INTEGER,
@@ -34,7 +34,7 @@ cursor.execute("""
         """)
 
 cursor.execute("""
-    CREATE TABLE mensagem(
+    CREATE TABLE tb_mensagem(
         id INTEGER AUTO_INCREMENT PRIMARY KEY,
         id_remetente INTEGER FOREIGN KEY,
         id_destinatario INTEGER FOREIGN KEY,
@@ -44,7 +44,7 @@ cursor.execute("""
         """)
 
 cursor.execute("""
-    CREATE TABLE post(
+    CREATE TABLE tb_post(
         id INTEGER AUTO_INCREMENT PRIMARY KEY,
         id_usuario INTEGER NOT NULL,
         texto_post VARCHAR(150) NOT NULL,
