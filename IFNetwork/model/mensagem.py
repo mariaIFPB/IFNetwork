@@ -2,29 +2,29 @@ import sqlite3
 
 class Mensagem ():
   
-    def __init__(texto, remetente, destinatario, chat):
+   def __init__(self, texto, email_remetente, email_destinatario, chat=[]):
         self.texto = texto
-        self.remetente = remetente
-        self.destinatario = destinatario
-        chat = []
+        self.email_remetente = email_remetente
+        self.email_destinatario = email_destinatario
+        self.chat = chat
     
-    def enviarMsg():
+    def enviarMsg(self):
       
         conn = sqlite3.connect("IFNetwork.db")
         cursor = conn.cursor()
 
         texto = input("Qual a mensagem? ")
-        remetente = input("Quem envia? "))
-        destinatario = input("Pra quem envia? "))
+        email_remetente = input("Quem envia? ")
+        email_destinatario = input("Pra quem envia? ")
         
-        mensagem = Mensagem(texto, remetente, destinatario)
+        mensagem = Mensagem(texto, email_remetente, email_destinatario)
         chat.append(mensagem)
         
         cursor.execute("""
         INSERT INTO tb_mensagem(horario) VALUES (datetime('now'));
         INSERT INTO tb_mensagem(texto, id_remetente, id_destinatario) VALUES (?, ?, ?);
-        """, (texto, remetente, destinatario))
+        """, (texto, email_remetente, email_destinatario))
 
         conn.commit()
 
-        conn.close()
+        conn.close() 
