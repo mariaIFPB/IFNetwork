@@ -1,11 +1,11 @@
-from model.Usuario import Usuario
+from model.usuario import Usuario
 
 #apenas criando e deletando usuarios
 
 opcao = int(input("seja bem vindo!\n"
       "\n opções:\n"
       "1 - criar novo usuário\n"
-      "2 - deletar usuário\n")
+      "2 - deletar usuário\n"))
 
 try:
     if (opcao == 1):

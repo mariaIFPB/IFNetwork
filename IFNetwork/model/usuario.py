@@ -2,6 +2,8 @@ import sqlite3
 
 class Usuario():
     def __init__(self, nome, email, telefone, senha, genero, idade, profissao, cidade, usuarios=[]):
+        if usuarios is None:
+            usuarios = []
         self.usuarios = usuarios
         self.nome = nome
         self.email = email
@@ -48,13 +50,13 @@ class Usuario():
         emailAntigo = self.email
         opcao = int(input("\ndeseja mudar seu email?\n"
                       "1 - sim"
-                      "2 - não")
+                      "2 - não"))
         if (opcao == 1):
             self.email = input("informe o novo email: ")
 
         opcao = int(input("\ndeseja mudar seu numero de telefone?\n"
                       "1 - sim"
-                      "2 - não")
+                      "2 - não"))
         if (opcao == 1):
             self.telefone = input('informe o novo telefone: ')
 
@@ -77,3 +79,4 @@ class Usuario():
             """, (email))
         conn.commit()
         conn.close()
+

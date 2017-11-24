@@ -1,12 +1,12 @@
 import sqlite3
 
-class Mensagem ():
+class Mensagem():
   
-   def __init__(self, texto, email_remetente, email_destinatario, chat=[]):
+    def __init__(self, texto, email_remetente, email_destinatario):
         self.texto = texto
         self.email_remetente = email_remetente
         self.email_destinatario = email_destinatario
-        self.chat = chat
+
     
     def enviarMsg(self):
       
@@ -17,8 +17,7 @@ class Mensagem ():
         email_remetente = input("Quem envia? ")
         email_destinatario = input("Pra quem envia? ")
         
-        mensagem = Mensagem(texto, email_remetente, email_destinatario)
-        chat.append(mensagem)
+        #mensagem = Mensagem(texto, email_remetente, email_destinatario)
         
         cursor.execute("""
         INSERT INTO tb_mensagem(horario) VALUES (datetime('now'));

@@ -2,12 +2,12 @@ import sqlite3
 
 class Post():
 
-    def __init__ (texto_post, id_usuario, visibilidade):
+    def __init__(self, texto_post, id_usuario, visibilidade):
         self.texto_post = texto_post
         self.id_usuario = id_usuario
         self.visibilidade = visibilidade
 
-    def postar():
+    def postar(self):
         feed = []
         conn = sqlite3.connect("IFNetwork.db")
         cursor = conn.cursor()
