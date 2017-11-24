@@ -48,13 +48,13 @@ class Usuario():
         emailAntigo = self.email
         opcao = int(input("\ndeseja mudar seu email?\n"
                       "1 - sim"
-                      "2 - não")
+                      "2 - não"))
         if (opcao == 1):
             self.email = input("informe o novo email: ")
 
         opcao = int(input("\ndeseja mudar seu numero de telefone?\n"
                       "1 - sim"
-                      "2 - não")
+                      "2 - não"))
         if (opcao == 1):
             self.telefone = input('informe o novo telefone: ')
 
