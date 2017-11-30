@@ -19,7 +19,7 @@ class Mensagem():
         
         cursor.execute("""
         INSERT INTO tb_mensagem(horario) VALUES (datetime('now'));
-        INSERT INTO tb_mensagem(texto, id_remetente, id_destinatario) VALUES (?, ?, ?);
+        INSERT INTO tb_mensagem(texto, email_remetente, email_destinatario) VALUES (?, ?, ?);
         """, (texto, email_remetente, email_destinatario))
 
         conn.commit()
