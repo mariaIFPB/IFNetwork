@@ -17,8 +17,6 @@ class Mensagem():
         email_remetente = input("Quem envia? ")
         email_destinatario = input("Pra quem envia? ")
         
-        #mensagem = Mensagem(texto, email_remetente, email_destinatario)
-        
         cursor.execute("""
         INSERT INTO tb_mensagem(horario) VALUES (datetime('now'));
         INSERT INTO tb_mensagem(texto, id_remetente, id_destinatario) VALUES (?, ?, ?);
