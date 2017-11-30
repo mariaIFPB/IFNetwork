@@ -14,7 +14,7 @@ class Usuario():
         self.profissao = profissao
         self.cidade = cidade
 
-    def inserirUser(self):
+    def inserirUsuario(self):
         conn = sqlite3.connect('IFNetwork.db')
         cursor = conn.cursor()
 
@@ -25,7 +25,7 @@ class Usuario():
         conn.commit()
         conn.close()
         
-    def listar(self):
+    def listarUsuarios(self):
         conn = sqlite3.connect('IFNetwork.db')
         cursor = conn.cursor()
         cursor.execute(""" SELECT * FROM usuario """)
@@ -46,6 +46,8 @@ class Usuario():
             
         return self.usuarios
 
+    #por enquanto atualizando apenas o telefone e o email.
+    
     def atualizar_fone_email(self):
         emailAntigo = self.email
         opcao = int(input("\ndeseja mudar seu email?\n"
@@ -69,7 +71,7 @@ class Usuario():
             WHERE email = ?
         """, (self.email, self.telefone, emailAntigo))
         
-    def deletar(self):
+    def deletarUsuario(self):
         conn = sqlite3.connect('IFNetwork.db')
         cursor = conn.cursor()
         email = self.email
