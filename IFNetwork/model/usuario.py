@@ -73,12 +73,15 @@ class Usuario():
         
     def deletarUsuario(self):
         conn = sqlite3.connect('IFNetwork.db')
-        cursor = conn.cursor()
-        email = self.email
-        cursor.execute("""
-            DELETE FROM tb_usuario 
-            WHERE email = ?
-            """, (email))
-        conn.commit()
-        conn.close()
+        cursor = conn.cursor()    
+        email = input("informe o email da conta a ser deletada: ")
+        senhaD = input("informe a senha: ")
+        
+        if (senhaD == self.senha):
+            cursor.execute("""
+                DELETE FROM tb_usuario 
+                WHERE email = ?
+                """, (email))
+            conn.commit()
+            conn.close()
 
