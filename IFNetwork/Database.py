@@ -32,6 +32,10 @@ try:
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
             id_usuario1 INTEGER,
             id_usuario2 INTEGER
+            id_usuario1 FOREIGN KEY,
+            REFERENCES usuario(id),
+            id_usuario2 FOREIGN KEY,
+            REFERENCES usuario(id)
             );
             """)
 
@@ -39,7 +43,7 @@ try:
         CREATE TABLE tb_mensagem(
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
             id_remetente INTEGER ,
-            id_destinatario INTEGER FOREIGN KEY,
+            id_destinatario INTEGER,
             texto_msg(255),
             horario_MSG DATE
             id_remetente FOREIGN KEY,
@@ -54,7 +58,9 @@ try:
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
             id_usuario INTEGER NOT NULL,
             texto_post VARCHAR(150) NOT NULL,
-            visibilidade VARCHAR(250)
+            visibilidade VARCHAR(250),
+            id_usuario FOREIGN KEY,
+            REFERENCES usuario(id)
             );
             """)
     conn.close()
