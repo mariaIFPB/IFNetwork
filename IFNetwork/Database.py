@@ -23,44 +23,44 @@ try:
     cursor.execute("""
         CREATE TABLE tb_amizade(
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
-            data_amizade TEXT
+            data_amizade DATE
             );
             """)
 
     cursor.execute("""
         CREATE TABLE tb_amigo_usuario(
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
-            id_usuario1 INTEGER,
-            id_usuario2 INTEGER
-            id_usuario1 FOREIGN KEY,
-            REFERENCES usuario(id),
-            id_usuario2 FOREIGN KEY,
-            REFERENCES usuario(id)
+            email1 VARCHAR(100) NOT NULL,
+            email2 VARCHAR(100) NOT NULL,
+            email1 FOREIGN KEY,
+            REFERENCES usuario(email),
+            email2 FOREIGN KEY,
+            REFERENCES usuario(email)
             );
             """)
 
     cursor.execute("""
         CREATE TABLE tb_mensagem(
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
-            id_remetente INTEGER ,
-            id_destinatario INTEGER,
+            email_remetente VARCHAR(100) NOT NULL ,
+            email_destinatario VARCHAR(100) NOT NULL,
             texto_msg(255),
             horario_MSG DATE
-            id_remetente FOREIGN KEY,
-            REFERENCES usuario(id),
-            id_destinatario FOREIGN KEY,
-            REFERENCES usuario(id)
+            email_remetente FOREIGN KEY,
+            REFERENCES usuario(email),
+            email_destinatario FOREIGN KEY,
+            REFERENCES usuario(email)
             );
             """)
 
     cursor.execute("""
         CREATE TABLE tb_post(
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
-            id_usuario INTEGER NOT NULL,
+            email_usuario VARCHAR(100) NOT NULL,
             texto_post VARCHAR(150) NOT NULL,
             visibilidade VARCHAR(250),
-            id_usuario FOREIGN KEY,
-            REFERENCES usuario(id)
+            email_usuario FOREIGN KEY,
+            REFERENCES usuario(email)
             );
             """)
     conn.close()
